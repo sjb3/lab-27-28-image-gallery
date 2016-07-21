@@ -36,7 +36,7 @@ For this assignment, build three different display components for an image url:
 
 Create a gallery component that contains hard-coded image data for populating the gallery. The gallery component must have data for at least five images. You must find your own images (and optionaly thumbnails of the same image).  
 
-Your component's must allow attributes to set the `title`, `description`, and `imageUrl` properties of their scopes  
+Your component's must allow attributes to set the `title`, `description`, and `imageUrl` properties of their scopes. Each of your component's must also have its own scss file that styles its appearance.
 
 # BONUS:
 * **1pt** Have the high-level component take a "parameter" to toggle between the display modes.
