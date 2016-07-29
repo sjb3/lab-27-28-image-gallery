@@ -14,3 +14,14 @@ a {
 div {
   outline-style: double;
 }
+
+.thumb {
+  height: 50px;
+  width: 50px;
+}
+
+div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
