@@ -5,6 +5,7 @@ const angular = require('angular');
 angular.module('galleryApp').controller('AppGalleryController', [AppGalleryController]);
 
 function AppGalleryController(){
+  console.log('hitting');
   this.galleryItem = {
     title: '',
     desc: '',

@@ -49,13 +49,15 @@
 	__webpack_require__(1);
 	__webpack_require__(2);
 
-	var angular = __webpack_require__(7);
+	var angular = __webpack_require__(6);
+
 	angular.module('galleryApp', []);
 
-	__webpack_require__(9);
+	__webpack_require__(8);
 	__webpack_require__(14);
+	__webpack_require__(19);
+	__webpack_require__(24);
 	__webpack_require__(29);
-	__webpack_require__(34);
 
 /***/ },
 /* 1 */
@@ -73,16 +75,15 @@
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */,
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(8);
+	__webpack_require__(7);
 	module.exports = angular;
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
@@ -31855,13 +31856,36 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(9);
+	__webpack_require__(10);
+	__webpack_require__(12);
+
+/***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(10);
-	__webpack_require__(12);
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var angular = __webpack_require__(6);
+
+	angular.module('galleryApp').controller('AppMainController', [AppMainController]);
+
+	function AppMainController() {
+	  this.images = [];
+
+	  this.addImage = function (image) {
+	    if ((typeof image === 'undefined' ? 'undefined' : _typeof(image)) === 'object' && image.title && image.imageUrl) {
+	      this.images.push(image);
+	    }
+	  };
+	}
 
 /***/ },
 /* 10 */
@@ -31869,13 +31893,17 @@
 
 	'use strict';
 
-	var angular = __webpack_require__(7);
+	var angular = __webpack_require__(6);
 
 	angular.module('galleryApp').directive('appMain', function () {
 	  return {
 	    restrict: 'E',
 	    replace: true,
-	    template: __webpack_require__(11)
+	    template: __webpack_require__(11),
+	    controller: 'AppMainController',
+	    controllerAs: 'appMainCtrl',
+	    bindToController: true,
+	    scope: {}
 	  };
 	});
 
@@ -31883,7 +31911,7 @@
 /* 11 */
 /***/ function(module, exports) {
 
-	module.exports = "<main class=\"app-main\">\n  <app-gallery></app-gallery>\n</main>\n";
+	module.exports = "<main class='app-main'>\n\n<app-gallery-item-form btn-title=\"Add Image\" submit=\"appMainCtrl.addImage(image)\">\n</app-gallery-item-form>\n\n<div class=\"app-gallery-container\">\n  <app-gallery-item ng-repeat=\"item in appMainCtrl.images\" image=\"item\"></app-gallery-item>\n</div>\n\n<app-show-modal-form show-image=\"appMainCtrl.showModalImage(image)\"></app-show-modal-form>\n<app-modal-image image-url=\"appMainCtrl.displayImageUrl\" ng-show=\"appMainCtrl.displayModalImage\" close-modal=\"appMainCtrl.hideModalImage()\">\n</app-modal-image>\n\n</main>\n\n\n<!-- <main class=\"app-main\">\n\n<app-gallery-item-form btn-title=\"Add Image\" submit=\"appMainCtrl.addImage(image)\">\n</app-gallery-item-form>\n\n<div class=\"app-gallery-container\">\n  <app-gallery-item ng-repeat=\"item in appMainCtrl.images\" image=\"item\"> </app-gallery-item>\n</div> -->\n\n <!-- the code for a modal image is below-->\n    <!-- <app-show-modal-form show-image=\"appMainCtrl.showModalImage(image)\"></app-show-modal-form>-->\n\n  <!--<app-modal-image image-url=\"appMainCtrl.displayImageUrl\"-->\n    <!--ng-show=\"appMainCtrl.displayModalImage\" close-modal=\"appMainCtrl.hideModalImage()\"></app-modal-image> -->\n\n<!-- </main> -->\n";
 
 /***/ },
 /* 12 */
@@ -31899,7 +31927,7 @@
 	'use strict';
 
 	__webpack_require__(15);
-	__webpack_require__(27);
+	__webpack_require__(17);
 
 /***/ },
 /* 15 */
@@ -31907,169 +31935,125 @@
 
 	'use strict';
 
-	var angular = __webpack_require__(7);
+	var angular = __webpack_require__(6);
 
-	angular.module('galleryApp').controller('AppGalleryController', [AppGalleryController]);
-
-	function AppGalleryController() {
-	  this.galleryItem = {
-	    title: '',
-	    desc: '',
-	    imgSrc: ''
+	angular.module('galleryApp').directive('appModalImage', function () {
+	  return {
+	    restrict: 'E',
+	    replace: true,
+	    template: __webpack_require__(16),
+	    scope: {
+	      imageUrl: '=',
+	      closeModal: '&'
+	    }
 	  };
-
-	  this.addGalleryItem = function () {
-	    this.images.push(angular.copy(this.galleryItem));
-	    this.galleryItem = { title: '', desc: '', imgSrc: '' };
-	  };
-
-	  this.images = [{
-	    title: '<Feel the Cat>',
-	    desc: ';sleeping cat00',
-	    imgSrc: __webpack_require__(16)
-	  }, {
-	    title: '<Cat one>',
-	    desc: ';sleeping cat01',
-	    imgSrc: __webpack_require__(17)
-	  }, {
-	    title: '<Cat two>',
-	    desc: ';sleeping cat02',
-	    imgSrc: __webpack_require__(18)
-	  }, {
-	    title: '<Cat three>',
-	    desc: ';sleeping cat03',
-	    imgSrc: __webpack_require__(19)
-	  }, {
-	    title: '<Cat four>',
-	    desc: ';sleeping cat04',
-	    imgSrc: __webpack_require__(20)
-	  }, {
-	    title: '<Cat five>',
-	    desc: ';sleeping cat05',
-	    imgSrc: __webpack_require__(21)
-	  }, {
-	    title: '<Cat six>',
-	    desc: ';sleeping cat06',
-	    imgSrc: __webpack_require__(22)
-	  }, {
-	    title: '<Cat seven>',
-	    desc: ';sleeping cat07',
-	    imgSrc: __webpack_require__(23)
-	  }, {
-	    title: '<Cat eight>',
-	    desc: ';sleeping cat08',
-	    imgSrc: __webpack_require__(24)
-	  }, {
-	    title: '<Cat nine>',
-	    desc: ';sleeping cat09',
-	    imgSrc: __webpack_require__(25)
-	  }, {
-	    title: '<Cat ten>',
-	    desc: ';sleeping cat10',
-	    imgSrc: __webpack_require__(26)
-	  }];
-	}
+	});
 
 /***/ },
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = __webpack_require__.p + "img/cat00-087d04f4f2117c736f1de419806f8a81.jpg";
+	module.exports = "<div class=\"app-modal-image\">\n  <div ng-click=\"closeModal()\">\n  </div>\n\n  <main >\n    <h1> Modal View </h1>\n    <img ng-src=\"{{imageUrl}}\" alt=\"firehose\" width=\"300\" height=\"300\">\n  </main>\n</div>\n";
 
 /***/ },
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = __webpack_require__.p + "img/cat01-661e80891c342f56c010c1b850f7b645.jpg";
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "img/cat02-e6ce90a07e5dec1b73d9b08bfbfd3b82.jpg";
+	// removed by extract-text-webpack-plugin
 
 /***/ },
+/* 18 */,
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/cat03-3b968322b03d64633ffc74d850d1ceda.jpg";
+	'use strict';
+
+	__webpack_require__(20);
+	__webpack_require__(22);
 
 /***/ },
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/cat04-a7c76c614feeb8c9e1f2848b430a4f87.jpg";
+	'use strict';
+
+	var angular = __webpack_require__(6);
+
+	angular.module('galleryApp').directive('appShowModalForm', function () {
+	  return {
+	    restrict: 'E',
+	    replace: true,
+	    template: __webpack_require__(21),
+	    scope: {
+	      showImage: '&'
+	    }
+	  };
+	});
 
 /***/ },
 /* 21 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = __webpack_require__.p + "img/cat05-2a8503db4553df25ebae7198d2b6d1c5.jpg";
+	module.exports = "<form class=\"app-show-modal-form form-inline\" novalidate ng-submit=\"showImage({image: imageUrl})\">\n  <div class=\"form-group\">\n    <label for=\"imageUrl\">Image Url:</label>\n    <input type=\"text\" name=\"imageUrl\" ng-model=\"imageUrl\">\n  </div>\n  <button class=\"btn btn-primary\" type=\"submit\">Show Image\"</button>\n</form>\n";
 
 /***/ },
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	module.exports = __webpack_require__.p + "img/cat06-275b13eed19273a0e7f00f4236cc6566.jpg";
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "img/cat07-18c7c3c451e6a744df649b0615497bdf.jpg";
+	// removed by extract-text-webpack-plugin
 
 /***/ },
+/* 23 */,
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/cat08-48c54dd879ef72e856765645d9b2c6ef.jpg";
+	'use strict';
+
+	__webpack_require__(25);
+	__webpack_require__(27);
 
 /***/ },
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "img/cat09-713b4ba3f2d94f9865eadcdded259586.jpg";
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "img/cat10-ef36ca7915e172518e0df2c92f681e21.jpg";
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var angular = __webpack_require__(7);
+	var angular = __webpack_require__(6);
 
-	angular.module('galleryApp').directive('galleryApp', function () {
+	angular.module('galleryApp').directive('appGalleryItemForm', function () {
 	  return {
 	    restrict: 'E',
 	    replace: true,
-	    scope: {},
-	    controller: 'AppGalleryController',
-	    controllerAs: 'appGalleryCtrl',
-	    bindToController: true,
-	    template: __webpack_require__(28)
+	    template: __webpack_require__(26),
+	    scope: {
+	      btnTitle: '@',
+	      submit: '&'
+	    }
 	  };
 	});
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"app-gallery\">\n  <form novalidate ng-submit=\"appGalleryCtrl.addGalleryItem()\">\n    <label for=\"title\">title: </label>\n    <input name=\"title\" type=\"text\" ng-model=\"appGalleryCtrl.galleryItem.title\"><br>\n    <label for=\"desc\">desc: </label>\n    <input type=\"text\" ng-model=\"appGalleryCtrl.galleryItem.desc\"><br>\n    <label for=\"imgSrc\">image source:</label>\n    <input type=\"text\" ng-model=\"appGalleryCtrl.galleryItem.imgSrc\">\n      <button type=\"submit\"> create item </button>\n  </form>\n  <ul>\n  <app-gallery-item ng-repeat=\"item in appGalleryCtrl.images\" title=\"{{item.title}}\" desc=\"{{item.desc}}\" img-thumb=\"{{item.imgThumb}}\" img-src=\"{{item.imgSrc}}\"> </app-gallery-item>\n  </ul>\n</section>\n";
+	module.exports = "<form ng-submit=\"submit({image: {title: title, imageUrl: imageUrl}})\"\n  novalidate class=\"form-inline app-gallery-item-form\" >\n\n  <div class=\"form-group\">\n    <label for=\"title\">Title:</label>\n    <input type=\"text\" name=\"title\" ng-model=\"title\">\n  </div>\n\n  <div class=\"form-group\">\n    <label for=\"imageUrl\">Url:</label>\n    <input type=\"text\" name=\"imageUrl\" ng-model=\"imageUrl\">\n  </div>\n\n  <button class=\"btn btn-default\" type=\"submit\"> {{ btnTitle }} </button>\n</form>\n";
 
 /***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 28 */,
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	__webpack_require__(30);
-	__webpack_require__(32);
+	__webpack_require__(31);
+	__webpack_require__(33);
 
 /***/ },
 /* 30 */
@@ -32077,68 +32061,53 @@
 
 	'use strict';
 
-	var angular = __webpack_require__(7);
+	var angular = __webpack_require__(6);
+
+	angular.module('galleryApp').controller('AppGalleryItemController', [AppGalleryItemController]);
+
+	function AppGalleryItemController() {
+	  this.updateImage = function (image) {
+	    var _this = this;
+
+	    Object.keys(this.image).forEach(function (key) {
+	      if (image[key]) _this.image[key] = image[key];
+	    });
+	  };
+	}
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(6);
 
 	angular.module('galleryApp').directive('appGalleryItem', function () {
 	  return {
 	    restrict: 'E',
 	    replace: true,
+	    controller: 'AppGalleryItemController',
+	    controllerAs: 'appGalleryItemCtrl',
+	    bindToController: true,
+	    template: __webpack_require__(32),
 	    scope: {
-	      imgThumb: '@',
-	      imgSrc: '@',
-	      title: '@',
-	      desc: '@'
-	    },
-	    template: __webpack_require__(31)
+	      image: '='
+	    }
 	  };
 	});
-
-/***/ },
-/* 31 */
-/***/ function(module, exports) {
-
-	module.exports = "";
 
 /***/ },
 /* 32 */
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	module.exports = "<!-- <div ng-init=\"clicked=false\"  class=\"app-gallery-item\">\n <img class=\"thumb\" ng-click=\"clicked=!clicked\" ng-src=\"{{imgSrc}}\"/>\n <img ng-show=\"clicked\" ng-src=\"{{imgSrc}}\"/>\n <a href=\"{{imgSrc}}\">{{title}}</a>\n <p> {{desc}} </p>\n <app-edit-gallery-item-form title='title' desc='desc'></app-edit-gallery-item-form>\n</div>\n\n\n<div class=\"app-gallery-item\">\n  <img ng-src=\"{{appGalleryItemCtrl.image.imageUrl}}\"/>\n  <h2>{{appGalleryItemCtrl.image.title}}</h2>\n\n  <app-gallery-item-form submit=\"appGalleryItemForm.updateImage(image)\" btn-title=\"Update Image\">\n  </app-gallery-item-form>\n\n</div> -->\n\n<div class=\"app-gallery-item\">\n  <img ng-src=\"{{appGalleryItemCtrl.image.imageUrl}}\">\n  <h2> {{appGalleryItemCtrl.image.title}} </h2>\n\n  <app-gallery-item-form submit=\"appGalleryItemCtrl.updateImage(image)\"\n       btn-title=\"update image\"\n    > </app-gallery-item-form>\n</div>\n";
 
 /***/ },
-/* 33 */,
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(35);
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var angular = __webpack_require__(7);
-
-	angular.module('galleryApp').directive('appEditGalleryItemForm', function () {
-	  return {
-	    restrict: 'E',
-	    replace: true,
-	    scope: {
-	      title: '=',
-	      desc: '='
-	    },
-	    template: __webpack_require__(36)
-	  };
-	});
-
-/***/ },
-/* 36 */
+/* 33 */
 /***/ function(module, exports) {
 
-	module.exports = "<form novalidate class='app-edit-gallery-item-form'>\n  <label for='title'>Title: </label><br>\n  <input name='title', type='text' ng-model='title'><br>\n  <label for='desc'>Description: </label><br>\n  <input name='desc', type='text' ng-model='desc'>\n</form>\n";
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
