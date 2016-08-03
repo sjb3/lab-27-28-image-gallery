@@ -2,4 +2,5 @@
   <img ng-src="{{appGalleryItemCtrl.image.imageUrl}}"/>
   <h2> {{appGalleryItemCtrl.image.title}} </h2>
   <app-gallery-item-form submit="appGalleryItemCtrl.updateImage(image)" btn-title="update image"> </app-gallery-item-form>
+   <app-gallery-item-fotm submit="clear" ng-show="clear.length" btn-clear="clear"></app-gallery-item-form>
 </div>

@@ -10,6 +10,7 @@ angular.module('galleryApp')
     template: require('./app-gallery-item-form.html'),
     scope: {
       btnTitle: '@',
+      btnClear: '@',//
       submit: '&'
     }
   };

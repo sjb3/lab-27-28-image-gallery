@@ -3,7 +3,7 @@
 .app-gallery-item {
   display: inline-block;
   background-color: $app-light;
-  border: double 3px #E80089;
+  border: double 3px $app-blood;
   border-radius: 30px/10px;
   padding: 5px;
   margin: 5px;
@@ -11,27 +11,7 @@
   img {
     width: 200px;
   }
+  h2 {
+    font-style: italic;
+  }
 }
-
-// body {
-//   font: monospace;
-// }
-//
-// a {
-//   font-style: italic;
-// }
-//
-// div {
-//   outline-style: double;
-// }
-//
-// .thumb {
-//   height: 50px;
-//   width: 50px;
-// }
-//
-// div {
-//   display: flex;
-//   justify-content: space-around;
-//   flex-wrap: wrap;
-// }
