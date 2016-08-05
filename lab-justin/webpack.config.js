@@ -1,7 +1,7 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const ExtractText = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
@@ -23,31 +23,29 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        loader: 'html'
-      },
-      {
         test: /\.scss$/,
         loader: ExtractText.extract('style', 'css!postcss!sass!')
       },
       {
-        test:/\.(jpg|gif|png)$/,
-        loader: 'file?name=img/[hash].[ext]'
+        test: /\.html$/,
+        loader: 'html'
       },
       {
-        test:/\.(eot|ttf|svg).*/,
+        test: /\.(eot|ttf|svg).*/,
         loader: 'file?prefix=font/'
       },
       {
+        test: /\.(jpg|gif|png)$/,
+        loader: 'file?name=img/[hash].[ext]'
+      },
+      {
         test: /\.woff.*/,
-        loader: 'url?limit=10000'
+        loader: 'url'
       }
     ]
   },
   sassLoader: {
     includePaths: [`${__dirname}/app/scss/lib`]
   },
-  postcss: function(){
-    return [autoprefixer];
-  }
+  postcss: [ autoprefixer({browsers: ['last 2 versions']})]
 };

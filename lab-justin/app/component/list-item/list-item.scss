@@ -1,0 +1,81 @@
+@import "_theme";
+
+.app-list-item {
+  position: relative;
+  width: 100%;
+  background-color: $app-dark;
+  border: 2px solid $app-dark;
+  margin: 10px;
+  padding-left: 10px;
+  padding-top: 2px;
+  border-radius: 10px 0px 10px 0px;
+  box-shadow: 4px 4px $app-light;
+
+  h2 {
+    // .fa-file-image-o {
+    //   color: $app-cdark;
+    //   margin-right: 8px;
+    // }
+
+    width: calc(100% + 2px);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0px;
+    padding-left: 8px;
+    line-height: 1.3em;
+    background-color: $app-light;
+    color: $app-default;
+    font-size: 1em;
+  }
+
+
+  p {
+    color: $app-default;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 2px;
+  }
+
+  // .app-social-status {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   text-align: right;
+  //   margin-top: 5px;
+  //   margin-right: 4px;
+  //
+  //   .app-social-status-text {
+  //     color: $app-cdefault;
+  //   }
+  //
+  //   .disabled {
+  //     color: $app-cdisabled;
+  //   }
+  // }
+}
+
+.app-list-item:hover {
+  background-color: $app-light;
+  box-shadow: 4px 4px $app-dark;
+  h2 {
+    color: $app-light;
+    background-color: $app-dark;
+  }
+
+  // .fa {
+  //   color: $app-clight;
+  // }
+  //
+  // .fa:hover {
+  //   color: $app-cfocus;
+  // }
+  //
+  // .fa:active {
+  //   color: $app-cactive;
+  // }
+  //
+  // .fa.disabled {
+  //   color: $app-cdisabled;
+  // }
+}

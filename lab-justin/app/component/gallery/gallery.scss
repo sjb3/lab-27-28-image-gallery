@@ -1,0 +1,15 @@
+@import "_theme";
+
+.app-gallery {
+  width: 100%;
+
+  img {
+    margin: 4px;
+  }
+  .gallery-item-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
