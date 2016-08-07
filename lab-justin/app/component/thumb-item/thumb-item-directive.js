@@ -7,8 +7,12 @@ angular.module('galleryApp')
     restrict: 'E',
     replace: true,
     template: require('./thumb-item.html'),
+    // controller: 'MainController',
+    // controllerAs: 'mainCtrl',
     scope: {
-      image: '='
+      image: '=',
+      showModalImage: '&',
+      close: '&'
     }
   };
 });

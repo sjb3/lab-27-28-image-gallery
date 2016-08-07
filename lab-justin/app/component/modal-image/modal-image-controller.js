@@ -5,6 +5,7 @@ angular.module('galleryApp')
 .controller('ModalImageController', [ModalImageController]);
 
 function ModalImageController(){
+  console.log('hitting modalController');
   this.updateImageWithData = function(image){
     if (typeof image === 'object' && typeof this.image === 'object') {
       Object.keys(this.image).forEach((key) => {

@@ -8,7 +8,8 @@ angular.module('galleryApp')
     replace: true,
     template: require('./gallery.html'),
     controller: 'GalleryController',
-    controllerAs: 'galleryCtrl',
-    bindToController: true
+    controllerAs: 'galleryCtrl'
+
+    // bindToController: true
   };
 });
