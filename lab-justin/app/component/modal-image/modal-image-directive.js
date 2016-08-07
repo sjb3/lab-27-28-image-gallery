@@ -13,9 +13,6 @@ angular.module('galleryApp')
     scope: {
       image: '=',
       close: '&'
-      // showModalImage: '&',
-      // displayModalImage: '&',
-      // hideModalImage: '&'
     }
   };
 });

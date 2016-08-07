@@ -6,6 +6,8 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 4000;
+  display: flex;
+  flex-wrap: wrap;
 
   main {
     position: relative;
@@ -14,17 +16,19 @@
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    height: 430px;
+    // width: 150px;
+    // height: 150px;
     border: solid 4px #c5f7ce;
     box-shadow: 4px 4px $app-shadow;
+    overflow: scroll;
     // border-radius: 10px 0px 10px 0px;
 
     img {
-      width: 440px;
+      // width: 440px;
       border: solid 4px #c5f7ce;
       // border-radius: 10px 0px 10px 0px;
       box-shadow: 4px 4px $app-shadow;
+      overflow: scroll;
     }
 
     h2 {
@@ -38,10 +42,10 @@
       border-radius: 4px 4px 4px 4px;
     }
 
-    p {
-      font-weight: bold;
-      overflow: scroll;
-    }
+    // p {
+    //   font-weight: bold;
+    //   overflow: scroll;
+    // }
   }
 
   .app-close-modal {

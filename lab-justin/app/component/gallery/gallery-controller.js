@@ -9,7 +9,7 @@ function GalleryController(imageService){
 
   imageService.addImage({
     title: 'cupCake00',
-    desc: 'cupCake00 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    desc: 'cupCake00 Lorem ipsum dolod minim veniam, quequat. Duis aute irlum doccaeia deserunt mollit anim id est laborum.',
     imgUrl: require('../../asset/img/cupcake0.jpg')
   }),
   imageService.addImage({
@@ -24,12 +24,12 @@ function GalleryController(imageService){
   }),
   imageService.addImage({
     title: 'cupCake03',
-    desc: 'cupCake03 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    desc: 'cupCake03 nt ut labo in voluptate at non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     imgUrl: require('../../asset/img/cupcake3.jpg')
   }),
   imageService.addImage({
     title: 'cupCake04',
-    desc: 'cupCake04Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunin ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velitulla pariatur. Excepteur sint occaecid est laborum.',
+    desc: 'cupCake04Lorem ipsumidunin ullamco laboris nisi ut alinderit in voluptate velitulla pariat laborum.',
     imgUrl: require('../../asset/img/cupcake4.jpg')
   }),
   imageService.addImage({
