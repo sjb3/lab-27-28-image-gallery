@@ -1,7 +1,7 @@
 'use stirct';
 
 const angular = require('angular');
-angular.module('demoApp')
+angular.module('galleryApp')
 .directive('appModalImage', function(){
   return {
     restrict: 'E',

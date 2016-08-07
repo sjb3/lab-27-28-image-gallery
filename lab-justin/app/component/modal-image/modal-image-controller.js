@@ -1,7 +1,7 @@
 'use strict';
 
 const angular = require('angular');
-angular.module('demoApp')
+angular.module('galleryApp')
 .controller('ModalImageController', [ModalImageController]);
 
 function ModalImageController(){

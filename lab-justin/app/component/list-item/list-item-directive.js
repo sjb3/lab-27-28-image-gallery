@@ -6,7 +6,7 @@ angular.module('galleryApp')
   return {
     restrict: 'E',
     replace: true,
-    template: './list-item.html',
+    template: require('./list-item.html'),
     scope: {
       image: '='
     }

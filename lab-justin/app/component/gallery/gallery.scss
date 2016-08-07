@@ -6,10 +6,17 @@
   img {
     margin: 4px;
   }
+
+  .gallery-item-container-padding {
+    height: 150px;
+    width: 100%;
+    // background-color: $app-light;
+  }
   .gallery-item-container {
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
   }
+
 }

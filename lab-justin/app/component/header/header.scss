@@ -8,7 +8,7 @@
 // }
 
 .app-header {
-  border-bottom: 4px double;
+  border-bottom: 5px double;
 
   header {
     position: relative;
@@ -18,7 +18,7 @@
   }
 
   .header-logo {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Indie Flower', monospace;
     font-size: 35px;
     font-style: italic;
     color: #ef81cc;
@@ -54,7 +54,7 @@
 
   .gallery-view-selector {
     position: absolute;
-    margin-top: 25px;
+    margin-top: 50px;
     min-width: 200px;
 
     button {

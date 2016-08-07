@@ -9,7 +9,7 @@ require('./service/imageService.js');
 
 require('./component/main');
 require('./component/header');
-// require('./component/modal-image');
+require('./component/modal-image');
 require('./component/gallery');
 require('./component/list-item');
 require('./component/thumb-item');
